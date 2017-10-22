@@ -2,6 +2,7 @@ package br.com.topInformation.gitRepositories.service;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
@@ -14,11 +15,11 @@ import br.com.topInformation.gitRepositories.GitRepositories;
 @Path("/gitRepositories")
 public class GitRepositoriesService {
 	@GET
-	@Path("/getStarredRepositories")
+	@Path("/getStarredRepositories/{page}")
 	@Produces(MediaType.APPLICATION_JSON)
-	public Response getStarredRepositories() {
+	public Response getStarredRepositories(@PathParam("page") String page) {
 		JSONArray jsonItems = null;
-		String url = "https://api.github.com/search/repositories?q=language:apex&sort=stars";
+		String url = "https://api.github.com/search/repositories?q=language:apex&sort=stars&page=" + page;
 		JSONArray jsonObj = GitRepositories.getInstance().readUrl(url);
 		if (jsonObj != null) {
 			jsonItems = GitRepositories.getInstance().parseJSON(jsonObj);
