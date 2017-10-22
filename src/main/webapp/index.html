@@ -55,12 +55,17 @@
 			</tbody>
 			<tfoot>
 				<tr>
-					<td colspan="5">
+					<td colspan="2">
 						<div style="float:left">
-							<a ng-click="previousPage()">Previous Page
+							<a ng-click="previousPage()">Previous Page</a>
 						</div>
+					</td>
+					<td>
+						Page {{page}} of {{totalPages}}
+					</td>
+					<td colspan="2">
 						<div style="float:right">
-							<a ng-click="nextPage()">Next Page
+							<a ng-click="nextPage()">Next Page</a>
 						</div>
 					</td>
 				</tr>

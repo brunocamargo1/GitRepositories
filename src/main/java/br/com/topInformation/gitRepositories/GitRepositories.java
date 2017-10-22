@@ -34,7 +34,7 @@ public class GitRepositories
 		return jsonRepositories;
 	}
 
-	public JSONArray readUrl(String url)
+	public JSONObject readUrl(String url)
 	{
 		JSONObject jsonObj = null;
 		try
@@ -46,6 +46,6 @@ public class GitRepositories
 			e.printStackTrace();
 		}
 
-		return jsonObj.getJSONArray("items");
+		return jsonObj;
 	}
 }
